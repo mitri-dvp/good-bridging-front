@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <header>
         <nav>
           <a href="#" className={styles.logo}>
-            <img src="./assets/goob_bridging_brandmark_color.png" alt="goob_bridging_brandmark_color" />
+            <img src="/assets/goob_bridging_brandmark_color.png" alt="goob_bridging_brandmark_color" />
             <div>Good <span>Bridging</span></div>
           </a>
           <a href="#">About</a>
@@ -27,8 +27,8 @@ const Home: NextPage = () => {
       <main>
         <section className={styles.hero}>
           <div className={styles.content}>
-            <img className={styles.shapes} src="./assets/home-hero-shapes.svg" alt="" />
-            <img className={styles.mascot} src="./assets/home-hero-mascot.svg" alt="" />
+            <img className={styles.shapes} src="/assets/home-hero-shapes.svg" alt="" />
+            <img className={styles.mascot} src="/assets/home-hero-mascot.svg" alt="" />
             <div>
               <h1>Good Morning and Good Bridging!</h1>
               <p>&quot;GM and GB&quot; stands for &quot;Good Morning and Good Bridging&quot;, as every new ERC-20assets cross from Ethereum to avalanche since it&apos;s way faster and cheaper, therefore enhancing the DeFi experience.</p>
