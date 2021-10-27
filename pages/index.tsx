@@ -23,9 +23,22 @@ const Home: NextPage = () => {
           <a href="#">Calendar</a>
         </nav>
       </header>
-      <main>
 
+      <main>
+        <section className={styles.hero}>
+          <div className={styles.content}>
+            <img className={styles.shapes} src="./assets/home-hero-shapes.svg" alt="" />
+            <img className={styles.mascot} src="./assets/home-hero-mascot.svg" alt="" />
+            <div>
+              <h1>Good Morning and Good Bridging!</h1>
+              <p>&quot;GM and GB&quot; stands for &quot;Good Morning and Good Bridging&quot;, as every new ERC-20assets cross from Ethereum to avalanche since it&apos;s way faster and cheaper, therefore enhancing the DeFi experience.</p>
+            </div>
+          </div>
+        </section>
+        <section className={styles.about}>
+        </section>
       </main>
+
       <footer>
 
       </footer>

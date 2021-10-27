@@ -1,7 +1,10 @@
 .home header {
+  width: 100%;
   height: 5.75rem;
   background-color: rgb(1, 21, 47);
   color: #fff;
+  position: absolute;
+  z-index: 10;
 }
 
 .home nav {
@@ -38,4 +41,62 @@
   display: block;
   font-size: 1.5rem;
   letter-spacing: 1.5px;
+}
+
+.home section {
+  min-height: 100vh;
+}
+
+.home .hero {
+  padding-top: 5.75rem;
+  background-image: linear-gradient(rgb(24, 42, 66), rgb(1, 21, 47), rgb(1, 21, 47), rgb(1, 21, 47));
+  display: grid;
+}
+
+.home .hero .content {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.home .hero .content > .shapes {
+  width: 20rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home .hero .content > .mascot {
+  width: 48.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.home .hero .content {
+  padding: 0 14rem;
+  padding-top: 5rem;
+  color: #fff;
+}
+
+.home .hero .content div {
+  max-width: 26rem;
+  position: relative;
+}
+
+.home .hero .content div h1 {
+  font-family: 'Gilroy';
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  line-height: 4.5rem;
+  font-weight: 800;
+}
+
+.home .hero .content div p {
+  font-family: 'Roboto';
+  letter-spacing: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 2.5rem;
 }
