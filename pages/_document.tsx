@@ -65,6 +65,7 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
         />
+        <link rel="icon" href="/assets/goob_bridging_brandmark_color.png" />
         </Head>
         <body>
           <Main />
