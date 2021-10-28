@@ -36,12 +36,139 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className={styles.about}>
+          <img className={styles.shapes} src="/assets/home-about-shape.svg" alt="" />
+          <div className={styles.content}>
+            <img className={styles.mascot} src="/assets/goob_bridging_light_background.svg" alt="" />
+            <div>
+              <p>What’s $GB?</p>
+              <p>Good Bridging Token ($GB) is a fair launched DeFi token in the Avalanche Network, 100% of the supply was airdropped evenly to 16,135 addresses give a warm welcome to those decentralization enthusiasts that have used the Avalanche-Ethereum Bridge to transact their ERC-20 assets in the Avalanche Network.</p>
+              <p>No insiders, no pre-sale, no VC’s, no team allocation.</p>
+              <img className={styles.banner} src="/assets/home-about-banner.svg" alt="" />
+            </div>
+          </div>
+          <div className={styles.footer}>People that trusts in GB</div>
+          <div className={styles.partners}></div>
         </section>
+        <section className={styles.calendar}>
+          <table className="content">
+            <thead>
+              <tr>
+                <th colSpan={3}>
+                  <div><img src="/assets/home-airdrop-banner-icon.svg" alt="" /> Calendar</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className={styles.date}>
+                  <div>12 Oct</div>
+                </td>
+                <td className={styles.name}>
+                  <div>Event Name</div>
+                </td>
+                <td className={styles.value}>
+                  <div>Value</div>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.date}>
+                  <div>12 Oct</div>
+                </td>
+                <td className={styles.name}>
+                  <div>Event Name</div>
+                </td>
+                <td className={styles.value}>
+                  <div>Value</div>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.date}>
+                  <div>12 Oct</div>
+                </td>
+                <td className={styles.name}>
+                  <div>Event Name</div>
+                </td>
+                <td className={styles.value}>
+                  <div>Value</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section className={styles.news}>
+          <div className={styles.header}>
+            <h1>Good Bridging News</h1>
+            <img src="/assets/home-news-mascot.svg" alt="" />
+          </div>
+          <div className={styles.content}>
+            <div className={styles.left}>
+              <img src="/assets/home-news-thumbnail.png" alt="" />
+              <span>Posted Monday 00, Month, Year</span>
+              <h1>Post Title</h1>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+              <button>Read More</button>
+            </div>
+            <div className={styles.rigth}>
+              <div className={styles.post}>
+                <img src="/assets/home-news-posts-thumbnail.png" alt="" />
+                <div className={styles.post_content}>
+                  <span>Posted Monday 00, Month, Year</span>
+                  <h1>Post Title</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
+                </div>
+              </div>
+              <div className={styles.post}>
+                <img src="/assets/home-news-posts-thumbnail.png" alt="" />
+                <div className={styles.post_content}>
+                  <span>Posted Monday 00, Month, Year</span>
+                  <h1>Post Title</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
+                </div>
+              </div>
+              <div className={styles.post}>
+                <img src="/assets/home-news-posts-thumbnail.png" alt="" />
+                <div className={styles.post_content}>
+                  <span>Posted Monday 00, Month, Year</span>
+                  <h1>Post Title</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
+                </div>
+              </div>
+              <div className={styles.post}>
+                <img src="/assets/home-news-posts-thumbnail.png" alt="" />
+                <div className={styles.post_content}>
+                  <span>Posted Monday 00, Month, Year</span>
+                  <h1>Post Title</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div className={styles.header}>
+            <div className={styles.logo}>
+              <img src="/assets/goob_bridging_black.svg" alt="" />
+              <span>A fair launch commutity coin built on Avalanche.</span>
+            </div>
+            <nav>
+              <a href="#">About</a>
+              <a href="#">Blog</a>
+              <a href="#">Partners</a>
+              <a href="#">Calendar</a>
+            </nav>
+            <div className={styles.socials}>
+              <img src="/assets/twitter.svg" alt="" />
+              <img src="/assets/discord.svg" alt="" />
+              <img src="/assets/telegram.svg" alt="" />
+              <img src="/assets/medium.svg" alt="" />
+            </div>
+          </div>
+          <div className={styles.footer}>
+            2021 Good Bridging . All Rights Reserved
+          </div>
+          <img className={styles.mascot} src="/assets/home-footer-mascot.svg" alt="" />
+        </footer>
       </main>
-
-      <footer>
-
-      </footer>
     </div>
   )
 }
