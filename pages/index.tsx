@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -13,14 +14,15 @@ const Home: NextPage = () => {
 
       <header>
         <nav>
-          <a href="#" className={styles.logo}>
+           <a href="#" className={styles.logo}>
             <img src="/assets/goob_bridging_brandmark_color.png" alt="goob_bridging_brandmark_color" />
             <div>Good <span>Bridging</span></div>
           </a>
-          <a href="#">About</a>
-          <a href="#">Blog</a>
-          <a href="#">Partners</a>
-          <a href="#">Calendar</a>
+          <a href="#about">About</a>
+          <a href="#blog">Blog</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#calendar">Calendar</a>
+          <Link href="/nft"><a>NFTs</a></Link>
         </nav>
       </header>
 
@@ -35,7 +37,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        <section className={styles.about}>
+        <section className={styles.about} id="about">
           <img className={styles.shapes} src="/assets/home-about-shape.svg" alt="" />
           <div className={styles.content}>
             <img className={styles.mascot} src="/assets/goob_bridging_light_background.svg" alt="" />
@@ -46,10 +48,14 @@ const Home: NextPage = () => {
               <img className={styles.banner} src="/assets/home-about-banner.svg" alt="" />
             </div>
           </div>
-          <div className={styles.footer}>People that trusts in GB</div>
-          <div className={styles.partners}></div>
         </section>
-        <section className={styles.calendar}>
+        <div className={styles.ecosystem} id="ecosystem">
+          <div className={styles.footer}>
+            <h1>People that trusts in GB</h1>
+            <div className={styles.images_container}></div>
+          </div>
+        </div>
+        <section className={styles.calendar} id="calendar">
           <table className="content">
             <thead>
               <tr>
@@ -95,7 +101,7 @@ const Home: NextPage = () => {
             </tbody>
           </table>
         </section>
-        <section className={styles.news}>
+        <section className={styles.news} id="blog">
           <div className={styles.header}>
             <h1>Good Bridging News</h1>
             <img src="/assets/home-news-mascot.svg" alt="" />
@@ -153,14 +159,14 @@ const Home: NextPage = () => {
             <nav>
               <a href="#">About</a>
               <a href="#">Blog</a>
-              <a href="#">Partners</a>
+              <a href="#">Ecosystem</a>
               <a href="#">Calendar</a>
             </nav>
             <div className={styles.socials}>
-              <img src="/assets/twitter.svg" alt="" />
-              <img src="/assets/discord.svg" alt="" />
-              <img src="/assets/telegram.svg" alt="" />
-              <img src="/assets/medium.svg" alt="" />
+              <a href="#"><img src="/assets/twitter.svg" alt="" /></a>
+              <a href="#"><img src="/assets/discord.svg" alt="" /></a>
+              <a href="#"><img src="/assets/telegram.svg" alt="" /></a>
+              <a href="#"><img src="/assets/medium.svg" alt="" /></a>
             </div>
           </div>
           <div className={styles.footer}>
