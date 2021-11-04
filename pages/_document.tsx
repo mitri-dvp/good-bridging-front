@@ -61,11 +61,11 @@ class MyDocument extends Document {
         />
         <link
             rel="preload"
-            href="/fonts/Roboto/Roboto-Heavy.ttf"
+            href="/fonts/Roboto/Roboto-BoldCondensed.ttf"
             as="font"
             crossOrigin=""
         />
-        <link rel="icon" href="/assets/goob_bridging_brandmark_color.png" />
+        <link rel="icon" href="/assets/png/goob_bridging_brandmark_color.png" />
         </Head>
         <body>
           <Main />

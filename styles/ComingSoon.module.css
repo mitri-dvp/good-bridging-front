@@ -1,0 +1,48 @@
+.container main {
+  min-height: 100vh;
+  padding-top: 5.75rem;
+  background-image: linear-gradient(rgb(38, 66, 103), rgb(1, 21, 47), rgb(1, 21, 47), rgb(1, 21, 47));
+  color: #fff;
+  position: relative;
+  padding-bottom: 7rem;
+}
+
+.container main .title {
+  font-family: 'Gilroy';
+  font-size: 4.75rem;
+  text-align: center;
+  font-weight: 900;
+  margin-top: 6.25rem;
+}
+.container main .images img {
+  position: absolute;
+}
+.container main .images img.left_shapes {
+  top: calc(50% + -1rem);
+  left: calc(50% - 25rem);
+  transform: translate(-50%, -50%);
+}
+.container main .images img.wolfys {
+  top: calc(50% + 5rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container main .images img.right_shapes {
+  top: calc(50% + 3rem);
+  left: calc(50% + 20rem);
+  transform: translate(-50%, -50%);
+}
+
+.container .socials {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.container main p {
+  text-align: center;
+  margin-top: 23rem;
+}
+.container main p:last-child {
+  font-weight: bold;
+  margin-top: 0;
+}
