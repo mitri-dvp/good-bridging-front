@@ -27,9 +27,12 @@
 }
 .home .hero .content > .lottie {
   position: absolute;
-  z-index: 10;
   right: 0;
   bottom: -1rem;
+}
+.home .hero .content > .lottie > svg {
+  width: 35rem!important;
+  transform: translateX(-8rem)!important;
 }
 
 .home .hero .content {
@@ -328,6 +331,6 @@
 
 @media (max-width: 1023px) {
   .home {
-    display: none;
+    /* display: none; */
   }
 }

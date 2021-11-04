@@ -37,7 +37,6 @@ const Home: any = () => {
           <div className={styles.content}>
             <img className={styles.shapes} src="/assets/svg/home-hero-shapes.svg" alt="" />
             <div className={styles.lottie} ref={containerRef}></div>
-            {/* <img className={styles.mascot} src="/assets/svg/home-hero-mascot.svg" alt="" /> */}
             <div>
               <h1>Good Morning and Good Bridging!</h1>
               <p>&quot;GM and GB&quot; stands for &quot;Good Morning and Good Bridging&quot;, as every new ERC-20assets cross from Ethereum to avalanche since it&apos;s way faster and cheaper, therefore enhancing the DeFi experience.</p>
