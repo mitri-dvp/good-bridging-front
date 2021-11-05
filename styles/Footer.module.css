@@ -70,3 +70,35 @@
   bottom: 0;
   left: 8rem;
 }
+
+@media (max-width: 1023px) {
+  .footer {
+    padding: 2rem;
+    height: auto;
+  }
+  .footer .header {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .footer .logo {
+    text-align: center;
+  }
+  .footer .logo img {
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  .footer .socials {
+    justify-content: center;
+    padding: 1rem;
+  }
+  .footer .copy {
+    padding-top: 2rem;
+  }
+  .footer .mascot {
+    position: relative;
+    margin: auto;
+    left: 0;
+    bottom: -2rem;
+  }  
+}

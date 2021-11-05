@@ -1,4 +1,4 @@
-.header {
+.header.desktop {
   width: 100%;
   height: 5.75rem;
   background-color: rgb(1, 21, 47);
@@ -7,7 +7,7 @@
   z-index: 10;
 }
 
-.header nav {
+.header.desktop nav {
   width: 100%;
   padding: 0 4.375rem;
   height: 100%;
@@ -19,7 +19,7 @@
 }
 
 
-.header nav .logo {
+.header.desktop nav .logo {
   height: 100%;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -32,17 +32,78 @@
   margin-right: 2.5rem;
 }
 
-.header nav .logo img {
+.header.desktop nav .logo img {
   height: 100%;
   padding: 0.25rem 0.5rem;
 }
 
-.header nav .logo span {
+.header.desktop nav .logo span {
   display: block;
   font-size: 1.5rem;
   letter-spacing: 1.5px;
 }
 
-.header section {
+.header.desktop section {
   min-height: 100vh;
+}
+
+.header.mobile {display: none;}
+
+@media (max-width: 1023px) {
+  .header.desktop {
+    display: none;
+  }
+
+  .header.mobile {
+    display: flex;
+    width: 100%;
+    height: 5.75rem;
+    background-color: rgb(1, 21, 47);
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header.mobile .logo {
+    height: 100%;
+  }
+
+  .header.mobile .logo img {
+    height: 100%;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .header.mobile button {
+    background: none;
+    border: none;
+    height: 100%;
+    padding: 1.5rem;
+  }
+  
+  .header.mobile button svg {
+    fill: #fa538b;
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+  }
+
+  .header.mobile nav {
+    display: none;
+  }
+
+  .header.mobile nav.active {
+    position: absolute;
+    background-color: rgb(1, 21, 47);
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    display: grid;
+  }
+  
+  .header.mobile nav > a {
+    padding: 1rem;
+    text-transform: uppercase;
+  }
 }

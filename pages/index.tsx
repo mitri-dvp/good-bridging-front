@@ -39,7 +39,7 @@ const Home: any = () => {
             <div className={styles.lottie} ref={containerRef}></div>
             <div>
               <h1>Good Morning and Good Bridging!</h1>
-              <p>&quot;GM and GB&quot; stands for &quot;Good Morning and Good Bridging&quot;, as every new ERC-20assets cross from Ethereum to avalanche since it&apos;s way faster and cheaper, therefore enhancing the DeFi experience.</p>
+              <p>&quot;GM and GB&quot;  is commonly used as a friendly way to say &quot;Good Morning and Good Bridging&quot;. Welcoming new ERC-20 assets crossing from Ethereum to Avalanche for a DeFi experience that is faster, cheaper, and way more fun!</p>
             </div>
           </div>
         </section>
@@ -73,35 +73,24 @@ const Home: any = () => {
             <tbody>
               <tr>
                 <td className={styles.date}>
-                  <div>12 Oct</div>
+                  <div>November 12th</div>
                 </td>
                 <td className={styles.name}>
-                  <div>Event Name</div>
+                  <div>Chikn Minting</div>
                 </td>
                 <td className={styles.value}>
-                  <div>Value</div>
+                  <div>Holders with 900 GB or more can mint a free NFT Chikn. NFT&apos;s are resource producing with a tri-token architecture.</div>
                 </td>
               </tr>
               <tr>
                 <td className={styles.date}>
-                  <div>12 Oct</div>
+                  <div>Passed</div>
                 </td>
                 <td className={styles.name}>
-                  <div>Event Name</div>
+                  <div>GoodFire Airdrop</div>
                 </td>
                 <td className={styles.value}>
-                  <div>Value</div>
-                </td>
-              </tr>
-              <tr>
-                <td className={styles.date}>
-                  <div>12 Oct</div>
-                </td>
-                <td className={styles.name}>
-                  <div>Event Name</div>
-                </td>
-                <td className={styles.value}>
-                  <div>Value</div>
+                  <div>Holders with over 900 GB will have a total of 28 Million GF airdrop evently.</div>
                 </td>
               </tr>
             </tbody>
