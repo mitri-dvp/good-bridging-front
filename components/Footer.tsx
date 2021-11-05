@@ -34,10 +34,10 @@ export default function Footer() {
             )}
           </nav>
           <div className={styles.socials}>
-            <a href="https://twitter.com/goodbridging" target='gb'><img src="/assets/svg/twitter.svg" alt="" /></a>
-            <a href="https://discord.com/invite/nQCYGQZd" target='gb'><img src="/assets/svg/discord.svg" alt="" /></a>
-            <a href="https://t.me/GoodBridgingToken" target='gb'><img src="/assets/svg/telegram.svg" alt="" /></a>
-            <a href="https://medium.com/@goodbridgingavax_3130" target='gb'><img src="/assets/svg/medium.svg" alt="" /></a>
+            <a href="https://twitter.com/goodbridging" target="_good_bridging"><img src="/assets/svg/twitter.svg" alt="" /></a>
+            <a href="https://discord.com/invite/nQCYGQZd" target="_good_bridging"><img src="/assets/svg/discord.svg" alt="" /></a>
+            <a href="https://t.me/GoodBridgingToken" target="_good_bridging"><img src="/assets/svg/telegram.svg" alt="" /></a>
+            <a href="https://medium.com/@goodbridgingavax_3130" target="_good_bridging"><img src="/assets/svg/medium.svg" alt="" /></a>
           </div>
         </div>
         <div className={styles.copy}>
