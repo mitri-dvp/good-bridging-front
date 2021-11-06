@@ -46,3 +46,19 @@
   font-weight: bold;
   margin-top: 0;
 }
+
+
+@media (max-width: 1023px) {
+  .container main .images img.left_shapes {
+    display: none;
+  }
+  .container main .images img.wolfys {
+    width: 100%;
+    top: calc(50% + 5rem);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container main .images img.right_shapes {
+    display: none;
+  }
+}
