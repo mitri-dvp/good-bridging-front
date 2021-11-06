@@ -3,7 +3,7 @@
   height: 5.75rem;
   background-color: rgb(1, 21, 47);
   color: #fff;
-  position: absolute;
+  position: fixed;
   z-index: 10;
 }
 
@@ -60,7 +60,7 @@
     height: 5.75rem;
     background-color: rgb(1, 21, 47);
     color: #fff;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     justify-content: space-between;
     align-items: center;

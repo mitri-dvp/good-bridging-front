@@ -171,7 +171,7 @@ const Home: any = () => {
             </tbody>
           </table>
         </section>
-        <section className={styles.news} id="blog">
+        {/* <section className={styles.news} id="blog">
           <div className={styles.header}>
             <h1>Good Bridging News</h1>
             <img src="/assets/svg/home-news-mascot.svg" alt="" />
@@ -219,7 +219,7 @@ const Home: any = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <Footer />
