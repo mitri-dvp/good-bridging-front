@@ -1,0 +1,81 @@
+.container main {
+  background-image: linear-gradient(rgb(38, 66, 103), rgb(1, 21, 47), rgb(1, 21, 47), rgb(1, 21, 47));
+  display: grid;
+  min-height: 100vh;
+  font-family: 'Gilroy';
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container h1 {
+  color: #2A3B51;
+  font-size: 18.75rem;
+  line-height: 0rem;
+}
+
+.container h2 {
+  font-size: 2.75rem;
+  text-transform: uppercase;
+  transform: translateY(-2.5rem);
+}
+
+.container main h2::before {
+  display: block;
+  content: '';
+  height: 2px;
+  width: 100%;
+  border-radius: 5rem;
+  background-color: rgb(250, 83, 139);
+  transform: translateY(-2.15rem);
+}
+
+.container main img {
+  position: absolute;
+}
+
+.container main img.left {
+  width: 12rem;
+  transform: translate(-20rem, 7rem);
+}
+
+.container main img.wolfy {
+  width: 14rem;
+}
+
+.container main img.rigth {
+  width: 12.25rem;
+  transform: translate(25rem, 3rem);
+}
+
+@media (max-width: 1023px) {
+  .container main h2::before {
+    transform: translateY(-1rem);
+  }
+
+  .container main img.left,
+  .container main img.rigth {
+    display: none;
+  }
+
+  .container main img.wolfy {
+    width: 100%;
+    padding: 0 6rem;
+    transform: translateY(2rem);
+  }
+
+  .container h1 {
+    color: #2A3B51;
+    font-size: 11rem;
+    line-height: 0rem;
+  }
+  
+  .container h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    transform: translateY(2rem);
+  }  
+}

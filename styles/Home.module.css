@@ -134,22 +134,19 @@
 }
 
 .home .ecosystem .partners > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
   max-width: 1120px;
   margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
   color: #fff;
   padding: 2.5rem 5rem;
+  position: relative;
 }
 
-.home .ecosystem .partners .partner {
-  width: max-content;
-  margin: auto;
+.home .ecosystem .partners .partner span {
+  text-align: center;
+  width: 100%;
+  display: block;
 }
+
 .home .ecosystem .partners .partner img {
   display: block;
   margin: auto;
@@ -157,6 +154,7 @@
   margin-bottom: 0.5rem;
   border-radius: 50%;
 }
+
 /* CALENDAR */
 
 .home .calendar {
@@ -397,11 +395,11 @@
 
   .home .ecosystem h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .home .ecosystem .partners > div {
-    padding: 2rem;
+    padding: 2rem 3rem;
   }
 
   .home .calendar {

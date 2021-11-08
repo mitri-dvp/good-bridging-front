@@ -1,0 +1,72 @@
+.container main header {
+  padding-top: 10.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container main header img {
+  width: 5rem;
+}
+
+.container main header h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  margin-top: 1.5rem;
+}
+.container main header h2 {
+  font-weight: normal;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+.container main .posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3.75rem 2rem;
+  padding: 0 2.5rem;
+  margin-bottom: 10rem;
+}
+
+.container main .posts .post {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.container main .posts .post .content {
+  background-color: #F2F2F2;
+  padding: 1rem 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.container main .posts .post img {
+  width: 100%;
+}
+
+.container main .posts .post span {
+  font-size: 0.875rem;
+  color: rgb(250, 83, 139);
+}
+
+.container main .posts .post h1 {
+  margin: 0.5rem 0;
+  font-size: 2.875rem;
+  font-weight: normal;
+}
+.container main .posts .post p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .container main header h1 {
+    font-size: 2rem;
+  }
+  .container main header h2 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .container main .posts {
+    grid-template-columns: 1fr;
+  }
+}
