@@ -100,17 +100,14 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
                   },
                 }}
               >
-                <SwiperSlide>
-                  <div>test</div>
-                </SwiperSlide>
-                {/* {partners.map((partner, i) => (
+                {partners.map((partner, i) => (
                   <SwiperSlide key={partner.screen_name}>
                     <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
                       <img src={partner.profile_pic} alt={partner.screen_name} />
                       <span>@{partner.screen_name}</span>
                     </a>
                   </SwiperSlide>
-                ))} */}
+                ))}
               </Swiper>
               </div>
             </div>
