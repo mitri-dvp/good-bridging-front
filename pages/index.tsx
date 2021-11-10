@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
@@ -9,13 +9,6 @@ import lottie from 'lottie-web';
 import styles from '../styles/Home.module.css'
 import partnersData from '../public/assets/json/partners.json'
 
-// Swiper
-// import { Navigation, A11y } from 'swiper';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-
 // Embla
 import useEmblaCarousel from 'embla-carousel-react'
 interface Partner {
@@ -24,12 +17,23 @@ interface Partner {
 }
 
 const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
-  const [emblaRef] = useEmblaCarousel()
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, speed: 5, containScroll: 'trimSnaps' })
+
+  const prevSlide = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev()
+    }
+  }, [emblaApi])
+
+  const nextSlide = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext()
+    }
+  }, [emblaApi])
 
   const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
-    console.log('MOUNTED/UPDATED HOME, partners are:', partners)
     if(containerRef.current != undefined) {
       lottie.loadAnimation({
         container: containerRef.current, // the dom element that will contain the animation
@@ -78,52 +82,28 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
             <h1>Projects that trust in GB</h1>
             <div className={styles.partners}>
               <div>
-              <button className="swiper-prev-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                </svg>
-              </button>
-              <button className="swiper-next-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                </svg>
-              </button>
-              <div className="embla" ref={emblaRef}>
-                <div className="embla__container">
-                  {partners.map((partner, i) => (
-                    <div className="embla__slide" key={partner.screen_name}>
-                      <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
-                        <img src={partner.profile_pic} alt={partner.screen_name} />
-                        <span>@{partner.screen_name}</span>
-                      </a>
-                    </div>
-                  ))}
+                <button onClick={()=> prevSlide()} className="embla_prev_btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg>
+                </button>
+                <button onClick={()=> nextSlide()} className="embla_next_btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg>
+                </button>
+                <div className="embla" ref={emblaRef}>
+                  <div className="embla__container">
+                    {partners.map((partner, i) => (
+                      <div className="embla__slide" key={partner.screen_name}>
+                        <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
+                          <img src={partner.profile_pic} alt={partner.screen_name} />
+                          <span>@{partner.screen_name}</span>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              {/* <Swiper
-                modules={[Navigation, A11y]}
-                spaceBetween={0}
-                slidesPerView={2}
-                navigation={{
-                  prevEl: ".swiper-prev-btn",
-                  nextEl: ".swiper-next-btn",
-                }}
-                breakpoints={{
-                  1023: {
-                    slidesPerView: 5,
-                    spaceBetween: 50
-                  },
-                }}
-              >
-                {partners.map((partner, i) => (
-                  <SwiperSlide key={partner.screen_name}>
-                    <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
-                      <img src={partner.profile_pic} alt={partner.screen_name} />
-                      <span>@{partner.screen_name}</span>
-                    </a>
-                  </SwiperSlide>
-                ))}
-              </Swiper> */}
               </div>
             </div>
           </div>
