@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
@@ -21,12 +21,11 @@ interface Partner {
   profile_pic: string
 }
 
-
-
 const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
   const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
+    console.log('MOUNTED/UPDATED HOME, partners are:', partners)
     if(containerRef.current != undefined) {
       lottie.loadAnimation({
         container: containerRef.current, // the dom element that will contain the animation
@@ -219,8 +218,16 @@ export async function getServerSideProps(context: GetServerSideProps) {
         screen_name: partner.screen_name,
         profile_pic: data.profile_image_url.replace('_normal', '')
       })
+      console.log('SUCCESS :: Pushed partner:', {
+        screen_name: partner.screen_name,
+        profile_pic: data.profile_image_url.replace('_normal', '')
+      })
     } catch (error) {
       partners.push({
+        screen_name: partner.screen_name,
+        profile_pic: partner.default_src
+      })
+      console.log('ERROR :: Pushed partner:', {
         screen_name: partner.screen_name,
         profile_pic: partner.default_src
       })
