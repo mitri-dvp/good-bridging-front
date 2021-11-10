@@ -18,9 +18,20 @@ a {
   box-sizing: border-box;
 }
 
-/* Swiper Home Page */
-.swiper-prev-btn,
-.swiper-next-btn {
+/* Embla Home Page */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  position: relative;
+  flex: 0 0 20%;
+}
+
+.embla_prev_btn,
+.embla_next_btn {
   background: none;
   border: 0;
   position: absolute;
@@ -28,29 +39,34 @@ a {
   cursor: pointer;
 }
 
-.swiper-next-btn {
+.embla_next_btn {
   right: 0;
   transform: translate(-70%, -50%);
 }
 
-.swiper-prev-btn {
+.embla_prev_btn {
   left: 0;
   transform: translate(70%, -50%);
 }
 
-.swiper-prev-btn svg,
-.swiper-next-btn svg {
+.embla_prev_btn svg,
+.embla_next_btn svg {
   fill: rgb(250, 83, 139);
   height: 2rem;
   width: 2rem;
 }
 
 @media (max-width: 1023px) {
-  .swiper-next-btn {
+  .embla_next_btn {
     transform: translate(-30%, -50%);
   }
   
-  .swiper-prev-btn {
+  .embla_prev_btn {
     transform: translate(30%, -50%);
+  }
+
+  .embla__slide {
+    position: relative;
+    flex: 0 0 50%;
   }
 }
