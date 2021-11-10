@@ -151,9 +151,16 @@
   display: block;
   margin: auto;
   width: 5rem;
+  height: 5rem;
+  background-color: #fa538b;
+  color: transparent;
   margin-bottom: 0.5rem;
   border-radius: 50%;
 }
+.home .ecosystem .partners .partner img.loaded {
+  background-color: transparent;
+}
+
 
 /* CALENDAR */
 
