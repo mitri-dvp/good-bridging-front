@@ -10,18 +10,22 @@ import styles from '../styles/Home.module.css'
 import partnersData from '../public/assets/json/partners.json'
 
 // Swiper
-import { Navigation, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, A11y } from 'swiper';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
 
+// Embla
+import useEmblaCarousel from 'embla-carousel-react'
 interface Partner {
   screen_name: string
   profile_pic: string
 }
 
 const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
+  const [emblaRef] = useEmblaCarousel()
+
   const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
@@ -84,7 +88,19 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
                   <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                 </svg>
               </button>
-              <Swiper
+              <div className="embla" ref={emblaRef}>
+                <div className="embla__container">
+                  {partners.map((partner, i) => (
+                    <div className="embla__slide" key={partner.screen_name}>
+                      <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
+                        <img src={partner.profile_pic} alt={partner.screen_name} />
+                        <span>@{partner.screen_name}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* <Swiper
                 modules={[Navigation, A11y]}
                 spaceBetween={0}
                 slidesPerView={2}
@@ -107,7 +123,7 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
                     </a>
                   </SwiperSlide>
                 ))}
-              </Swiper>
+              </Swiper> */}
               </div>
             </div>
           </div>

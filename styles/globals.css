@@ -45,6 +45,17 @@ a {
   width: 2rem;
 }
 
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+}
+
 @media (max-width: 1023px) {
   .swiper-next-btn {
     transform: translate(-30%, -50%);
