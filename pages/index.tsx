@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react'
-import type { NextPage } from 'next'
+import { useRef, useEffect, useState } from 'react'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import Header from '../components/Header'
@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 
 import lottie from 'lottie-web';
 import styles from '../styles/Home.module.css'
+import partnersData from '../public/assets/json/partners.json'
 
 // Swiper
 import { Navigation, A11y } from 'swiper';
@@ -15,7 +16,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const Home: NextPage = () => {
+interface Partner {
+  screen_name: string
+  profile_pic: string
+}
+
+
+
+const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
   const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
@@ -29,7 +37,7 @@ const Home: NextPage = () => {
       });
     }
   }, [])
-  
+
   return (
     <div className={styles.home}>
       <Head>
@@ -92,112 +100,14 @@ const Home: NextPage = () => {
                   },
                 }}
               >
-                <SwiperSlide>
-                  <a href="https://twitter.com/chikn_farm" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1454057789232336900/t40Dv8Cu_400x400.jpg" alt="" />
-                    <span>@chikn_farm</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/GoodFireToken" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1454170683622273036/gYRbhrV1_400x400.jpg" alt="" />
-                    <span>@GoodFireToken</span>
-                  </a>
-                </SwiperSlide>
-                {/* <a href="https://twitter.com/chikn_farm" target="_good_bridging" className={styles.partner}>
-                  <img src="https://pbs.twimg.com/profile_images/1454057789232336900/t40Dv8Cu_400x400.jpg" alt="" />
-                  <span>@Partner_User</span>
-                </a> */}
-                <SwiperSlide>
-                  <a href="https://twitter.com/AvaxPenguinFam" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1452656095462318087/w11n9PAw_400x400.jpg" alt="" />
-                    <span>@AvaxPenguinFam</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/defidinos" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1438475608590323718/1gsm1ade_400x400.jpg" alt="" />
-                    <span>@defidinos</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/IslandsOfAvax" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1455644389963829250/1pXhDTdN_400x400.jpg" alt="" />
-                    <span>@IslandsOfAvax</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/CoolAvacats" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1448378117404385282/a_3LJCDK_400x400.jpg" alt="" />
-                    <span>@CoolAvacats</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/SavageSnowmen" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1445060078139162625/_KV71yPH_400x400.jpg" alt="" />
-                    <span>@SavageSnowmen</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/TinyBonesClub" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1446829404886339586/ZTWzAPUY_400x400.jpg" alt="" />
-                    <span>@TinyBonesClub</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/singularfarm" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1421859389376401413/ztWRxDS__400x400.png" alt="" />
-                    <span>@singularfarm</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/AvaxBridges" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1437852660342865927/W72sKjr2_400x400.png" alt="" />
-                    <span>@AvaxBridges</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/bridgesofavax" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1437930319210954752/BipbF4O0_400x400.jpg" alt="" />
-                    <span>@bridgesofavax</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/BridgeLoot" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1436835235627470849/BjLVHCNi_400x400.jpg" alt="" />
-                    <span>@BridgeLoot</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/avaxbridgetroll" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1444234606853644290/3q_AUDnB_400x400.jpg" alt="" />
-                    <span>@avaxbridgetroll</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/ministryofbulls" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1449929391627280385/Ufzmzd3M_400x400.jpg" alt="" />
-                    <span>@ministryofbulls</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/AvaxBridgeApes" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1442765101208064006/0lmM75yV_400x400.jpg" alt="" />
-                    <span>@AvaxBridgeApes</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/BridgeLootArt" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1451266758829019140/mMDuWaLc_400x400.png" alt="" />
-                    <span>@BridgeLootArt</span>
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a href="https://twitter.com/avaxVikings" target="_good_bridging" className={styles.partner}>
-                    <img src="https://pbs.twimg.com/profile_images/1443461686720147459/R70ZLZaT_400x400.jpg" alt="" />
-                    <span>@avaxVikings</span>
-                  </a>
-                </SwiperSlide>
+                {partners.map((partner, i) => (
+                  <SwiperSlide key={partner.screen_name}>
+                    <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
+                      <img src={partner.profile_pic} alt={partner.screen_name} />
+                      <span>@{partner.screen_name}</span>
+                    </a>
+                  </SwiperSlide>
+                ))}
               </Swiper>
               </div>
             </div>
@@ -288,10 +198,29 @@ const Home: NextPage = () => {
           </div>
         </section> */}
       </main>
-
       <Footer />
     </div>
   )
 }
 
 export default Home
+
+export async function getServerSideProps(context: GetServerSideProps) {
+  
+  const partners: Partner[] = []
+  
+  for (const partner of partnersData.partners) {
+    const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner}`, {
+      headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
+    })
+    const data = await res.json()
+    partners.push({
+      screen_name: partner,
+      profile_pic: data.profile_image_url.replace('_normal', '')
+    })
+  }
+
+  return {
+    props: {partners},
+  }
+}
