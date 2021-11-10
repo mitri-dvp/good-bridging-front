@@ -210,14 +210,21 @@ export async function getServerSideProps(context: GetServerSideProps) {
   const partners: Partner[] = []
   
   for (const partner of partnersData.partners) {
-    const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner}`, {
-      headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
-    })
-    const data = await res.json()
-    partners.push({
-      screen_name: partner,
-      profile_pic: data.profile_image_url.replace('_normal', '')
-    })
+    try {
+      const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
+        headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
+      })
+      const data = await res.json()
+      partners.push({
+        screen_name: partner.screen_name,
+        profile_pic: data.profile_image_url.replace('_normal', '')
+      })
+    } catch (error) {
+      partners.push({
+        screen_name: partner.screen_name,
+        profile_pic: partner.default_src
+      })
+    }
   }
 
   return {

@@ -1,21 +1,21 @@
 {
   "partners": [
-    "chikn_farm",
-    "GoodFireToken",
-    "AvaxPenguinFam",
-    "defidinos",
-    "IslandsOfAvax",
-    "CoolAvacats",
-    "SavageSnowmen",
-    "TinyBonesClub",
-    "singularfarm",
-    "AvaxBridges",
-    "bridgesofavax",
-    "BridgeLoot",
-    "avaxbridgetroll",
-    "ministryofbulls",
-    "AvaxBridgeApes",
-    "BridgeLootArt",
-    "avaxVikings"
+    {"screen_name": "chikn_farm", "default_src": "https://pbs.twimg.com/profile_images/1454057789232336900/t40Dv8Cu_400x400.jpg"},
+    {"screen_name": "GoodFireToken", "default_src": "https://pbs.twimg.com/profile_images/1454170683622273036/gYRbhrV1_400x400.jpg"},
+    {"screen_name": "AvaxPenguinFam", "default_src": "https://pbs.twimg.com/profile_images/1452656095462318087/w11n9PAw_400x400.jpg"},
+    {"screen_name": "defidinos", "default_src": "https://pbs.twimg.com/profile_images/1438475608590323718/1gsm1ade_400x400.jpg"},
+    {"screen_name": "IslandsOfAvax", "default_src": "https://pbs.twimg.com/profile_images/1455644389963829250/1pXhDTdN_400x400.jpg"},
+    {"screen_name": "CoolAvacats", "default_src": "https://pbs.twimg.com/profile_images/1448378117404385282/a_3LJCDK_400x400.jpg"},
+    {"screen_name": "SavageSnowmen", "default_src": "https://pbs.twimg.com/profile_images/1445060078139162625/_KV71yPH_400x400.jpg"},
+    {"screen_name": "TinyBonesClub", "default_src": "https://pbs.twimg.com/profile_images/1446829404886339586/ZTWzAPUY_400x400.jpg"},
+    {"screen_name": "singularfarm", "default_src": "https://pbs.twimg.com/profile_images/1421859389376401413/ztWRxDS__400x400.png"},
+    {"screen_name": "AvaxBridges", "default_src": "https://pbs.twimg.com/profile_images/1437852660342865927/W72sKjr2_400x400.png"},
+    {"screen_name": "bridgesofavax", "default_src": "https://pbs.twimg.com/profile_images/1437930319210954752/BipbF4O0_400x400.jpg"},
+    {"screen_name": "BridgeLoot", "default_src": "https://pbs.twimg.com/profile_images/1436835235627470849/BjLVHCNi_400x400.jpg"},
+    {"screen_name": "avaxbridgetroll", "default_src": "https://pbs.twimg.com/profile_images/1444234606853644290/3q_AUDnB_400x400.jpg"},
+    {"screen_name": "ministryofbulls", "default_src": "https://pbs.twimg.com/profile_images/1449929391627280385/Ufzmzd3M_400x400.jpg"},
+    {"screen_name": "AvaxBridgeApes", "default_src": "https://pbs.twimg.com/profile_images/1442765101208064006/0lmM75yV_400x400.jpg"},
+    {"screen_name": "BridgeLootArt", "default_src": "https://pbs.twimg.com/profile_images/1451266758829019140/mMDuWaLc_400x400.png"},
+    {"screen_name": "avaxVikings", "default_src": "https://pbs.twimg.com/profile_images/1443461686720147459/R70ZLZaT_400x400.jpg"}
   ]
 }
