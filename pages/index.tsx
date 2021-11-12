@@ -114,7 +114,7 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
             <tbody>
               <tr>
                 <td className={styles.date}>
-                  <div>November 10th</div>
+                  <div>Passed</div>
                 </td>
                 <td className={styles.name}>
                   <div>Chikn Minting</div>
