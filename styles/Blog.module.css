@@ -25,20 +25,36 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3.75rem 2rem;
-  padding: 0 2.5rem;
+  max-width: 1120px;
+  margin: auto;
   margin-bottom: 10rem;
+  padding: 0 2.5rem;
 }
 
 .container main .posts .post {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.container main .posts .post .content {
   background-color: #F2F2F2;
+  border-radius: 0.5rem;
+  height: max-content;
+  overflow: hidden;
+}
+
+.container main .posts .post .content {
   padding: 1rem 1.75rem;
   padding-bottom: 1.75rem;
 }
-.container main .posts .post img {
+
+.container main .posts .post .image_container {
   width: 100%;
+  aspect-ratio: 16/9;
+  background-color: red;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.container main .posts .post img {
+  display: none;
 }
 
 .container main .posts .post span {
@@ -47,8 +63,8 @@
 }
 
 .container main .posts .post h1 {
-  margin: 0.5rem 0;
-  font-size: 2.875rem;
+  margin: 1rem 0;
+  font-size: 2rem;
   font-weight: normal;
 }
 .container main .posts .post p {

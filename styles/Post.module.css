@@ -13,23 +13,35 @@
 
 .container article h1 {
   font-size: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.container article span {
+.container article .date {
   font-size: 1.25rem;
-  margin: 2.5rem 0;
+  margin-bottom: 2.5rem;
   color: rgb(250, 83, 139);
   display: block;
 }
 
 .container article img {
   width: 100%;
+  margin-bottom: 2.5rem;
 }
 
 .container article p {
   line-height: 2rem;
   font-size: 1.1rem;
-  margin: 2.5rem 0;
+  margin-bottom: 2.5rem;
+}
+
+.container article a {
+  color: rgb(250, 83, 139);
+}
+
+.container article iframe {
+  display: block;
+  margin: auto;
+  margin-bottom: 2.5rem;
 }
 
 @media (max-width: 1023px) {

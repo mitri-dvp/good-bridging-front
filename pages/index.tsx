@@ -4,19 +4,22 @@ import Head from 'next/head'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Seo from "../components/Seo"
 
-import lottie from 'lottie-web';
 import styles from '../styles/Home.module.css'
 import partnersData from '../public/assets/json/partners.json'
 
+import { fetchAPI } from "../lib/api"
 // Embla
 import useEmblaCarousel from 'embla-carousel-react'
-interface Partner {
-  screen_name: string
-  profile_pic: string
-}
+import lottie from 'lottie-web';
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 
-const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
+import { Partner, Airdrop } from '../types'
+
+const Home: NextPage<{airdrops: Airdrop[], partners: Partner[], homepage: any}> = ({ airdrops, partners, homepage }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, speed: 5, containScroll: 'trimSnaps' })
 
   const prevSlide = useCallback(() => {
@@ -45,10 +48,19 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
     }
   }, [])
 
+  const getAirdropDate = (date: string): string => {
+    const airdropDate = dayjs(date)
+    const currentDate = dayjs()
+    return airdropDate > currentDate ? airdropDate.format('MMMM Do') : 'Passed'
+  }
+
   return (
     <div className={styles.home}>
+
+      <Seo seo={homepage.seo} />
+
       <Head>
-        <title>Welcome to Good Bridging</title>
+        <title>{homepage.seo.metaTitle}</title>
       </Head>
 
       <Header />
@@ -94,7 +106,7 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
                 <div className="embla" ref={emblaRef}>
                   <div className="embla__container">
                     {partners.map(partner => (
-                      <EmblaSlide  key={partner.screen_name} partner={partner}/>
+                      <HomeEmblaSlide  key={partner.id} partner={partner}/>
                     ))}
                   </div>
                 </div>
@@ -112,28 +124,19 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className={styles.date}>
-                  <div>Passed</div>
-                </td>
-                <td className={styles.name}>
-                  <div>Chikn Minting</div>
-                </td>
-                <td className={styles.value}>
-                  <div>Holders with 900 GB or more can mint a free NFT Chikn. NFT&apos;s are resource producing with a tri-token architecture.</div>
-                </td>
-              </tr>
-              <tr>
-                <td className={styles.date}>
-                  <div>Passed</div>
-                </td>
-                <td className={styles.name}>
-                  <div>GoodFire Airdrop</div>
-                </td>
-                <td className={styles.value}>
-                  <div>Holders with over 900 GB will have a total of 28 Million GF airdrop evently.</div>
-                </td>
-              </tr>
+              {airdrops.map(airdrop => (
+                <tr key={airdrop.id}>
+                  <td className={styles.date}>
+                    <div>{getAirdropDate(airdrop.date)}</div>
+                  </td>
+                  <td className={styles.name}>
+                    <div>{airdrop.name}</div>
+                  </td>
+                  <td className={styles.value}>
+                    <div>{airdrop.description}</div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
@@ -192,45 +195,7 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
   )
 }
 
-export default Home
-
-export async function getServerSideProps(context: GetServerSideProps) {
-  
-  const partners: Partner[] = []
-  
-  for (const partner of partnersData.partners) {
-    try {
-      const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
-        headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
-      })
-      const data = await res.json()
-      partners.push({
-        screen_name: partner.screen_name,
-        profile_pic: data.profile_image_url.replace('_normal', '')
-      })
-      console.log('SUCCESS :: Pushed partner:', {
-        screen_name: partner.screen_name,
-        profile_pic: data.profile_image_url.replace('_normal', '')
-      })
-    } catch (error) {
-      partners.push({
-        screen_name: partner.screen_name,
-        profile_pic: partner.default_src
-      })
-      console.log('ERROR :: Pushed partner:', {
-        screen_name: partner.screen_name,
-        profile_pic: partner.default_src
-      })
-    }
-  }
-
-  return {
-    props: {partners},
-  }
-}
-
-
-const EmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
+const HomeEmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
@@ -242,3 +207,39 @@ const EmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
     </div>
   )
 }
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [airdrops, partners, homepage] = await Promise.all([
+    fetchAPI("/airdrops", "?_sort=date:DESC"),
+    fetchAPI("/partners"),
+    fetchAPI("/homepage"),
+  ])
+
+  // Make a Calendar component...
+
+  const partnersTwitter: Partner[] = []
+  
+  for (const partner of partners) {
+    try {
+      const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
+        headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
+      })
+      const data = await res.json()
+      partnersTwitter.push({
+        screen_name: partner.screen_name,
+        profile_pic: data.profile_image_url.replace('_normal', ''),
+        id: partner.id
+      })
+    } catch (error) {
+      console.log(`ERROR fetching ${partner.screen_name} profile`)
+    }
+  }
+
+  return {
+    props: { airdrops, partners: partnersTwitter, homepage },
+    revalidate: 1,
+  }
+}
+
+export default Home
