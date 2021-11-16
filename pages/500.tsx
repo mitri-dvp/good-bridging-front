@@ -25,6 +25,10 @@ const Custom500: NextPage = () => {
   )
 }
 
-export async function getStaticProps() {}
+export async function getStaticProps() {
+  return {
+    props: {}
+  }
+}
 
 export default Custom500

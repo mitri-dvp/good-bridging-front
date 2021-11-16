@@ -13,6 +13,10 @@ const Nft: NextPage = () => {
   )
 }
 
-export async function getStaticProps() {}
+export async function getStaticProps() {
+  return {
+    props: {}
+  }
+}
 
 export default Nft
