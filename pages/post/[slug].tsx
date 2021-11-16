@@ -46,6 +46,8 @@ const Post: NextPage<any> = ({ post, categories }) => {
 export async function getStaticPaths() {
   const posts = await fetchAPI("/posts")
 
+  console.log(posts)
+
   return {
     paths: posts.map((post: any) => ({
       params: {

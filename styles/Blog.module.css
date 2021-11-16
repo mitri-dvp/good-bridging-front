@@ -47,7 +47,7 @@
 .container main .posts .post .image_container {
   width: 100%;
   aspect-ratio: 16/9;
-  background-color: red;
+  background-color: #bbb;
   overflow: hidden;
   background-size: cover;
   background-position: center;
