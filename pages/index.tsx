@@ -1,5 +1,5 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import Header from '../components/Header'
@@ -7,12 +7,12 @@ import Footer from '../components/Footer'
 import Seo from "../components/Seo"
 
 import styles from '../styles/Home.module.css'
-import partnersData from '../public/assets/json/partners.json'
 
 import { fetchAPI } from "../lib/api"
 // Embla
 import useEmblaCarousel from 'embla-carousel-react'
 import lottie from 'lottie-web';
+import scrapeIt from 'scrape-it'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(advancedFormat)
@@ -216,10 +216,8 @@ export async function getStaticProps() {
     fetchAPI("/homepage"),
   ])
 
-  // Make a Calendar component...
-
   const partnersTwitter: Partner[] = []
-  
+
   for (const partner of partners) {
     try {
       const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
