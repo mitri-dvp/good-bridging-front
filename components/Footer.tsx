@@ -43,7 +43,7 @@ export default function Footer() {
         <div className={styles.copy}>
           2021 Good Bridging . All Rights Reserved
         </div>
-        <img className={styles.mascot} src="/assets/svg/home-footer-mascot.svg" alt="" />
+        <a href="https://t.me/GoodBridgingToken" target="_good_bridging"><img className={styles.mascot} src="/assets/svg/home-footer-mascot.svg" alt="" /></a>
       </div>
     </footer>
   )

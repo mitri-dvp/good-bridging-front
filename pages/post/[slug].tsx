@@ -1,4 +1,5 @@
-import Markdown  from "markdown-to-jsx"
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import dayjs from "dayjs"
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -36,7 +37,7 @@ const Post: NextPage<any> = ({ post, categories }) => {
           src={imageUrl}
           alt={post.image.alternativeText || ""}
         />
-        <Markdown options={{wrapper: React.Fragment}}>{post.content}</Markdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </article>
       <Footer/>
     </div>
