@@ -1,10 +1,10 @@
-export interface Partner {
+export interface PartnerT {
   id: number
   screen_name: string
   profile_pic: string
 }
 
-export interface Airdrop {
+export interface AirdropT {
   id: number
   name: string
   description: string

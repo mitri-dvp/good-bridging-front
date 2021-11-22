@@ -17,9 +17,10 @@ import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(advancedFormat)
 
-import { Partner, Airdrop } from '../types'
+import { PartnerT, AirdropT } from '../types'
+import Airdrop from '../components/Airdrop'
 
-const Home: NextPage<{airdrops: Airdrop[], partners: Partner[], homepage: any}> = ({ airdrops, partners, homepage }) => {
+const Home: NextPage<{airdrops: AirdropT[], partners: PartnerT[], homepage: any}> = ({ airdrops, partners, homepage }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, speed: 5, containScroll: 'trimSnaps' })
 
   const prevSlide = useCallback(() => {
@@ -47,12 +48,6 @@ const Home: NextPage<{airdrops: Airdrop[], partners: Partner[], homepage: any}> 
       });
     }
   }, [])
-
-  const getAirdropDate = (date: string): string => {
-    const airdropDate = dayjs(date)
-    const currentDate = dayjs()
-    return airdropDate > currentDate ? airdropDate.format('MMMM Do') : 'Passed'
-  }
 
   return (
     <div className={styles.home}>
@@ -124,19 +119,7 @@ const Home: NextPage<{airdrops: Airdrop[], partners: Partner[], homepage: any}> 
               </tr>
             </thead>
             <tbody>
-              {airdrops.map(airdrop => (
-                <tr key={airdrop.id}>
-                  <td className={styles.date}>
-                    <div>{getAirdropDate(airdrop.date)}</div>
-                  </td>
-                  <td className={styles.name}>
-                    <div>{airdrop.name}</div>
-                  </td>
-                  <td className={styles.value}>
-                    <div>{airdrop.description}</div>
-                  </td>
-                </tr>
-              ))}
+              {airdrops.map(airdrop => <Airdrop key={airdrop.id} airdrop={airdrop} styles={styles} />)}
             </tbody>
           </table>
         </section>
@@ -195,7 +178,7 @@ const Home: NextPage<{airdrops: Airdrop[], partners: Partner[], homepage: any}> 
   )
 }
 
-const HomeEmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
+const HomeEmblaSlide: React.FC<{partner: PartnerT}> = ({ partner }) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
@@ -216,7 +199,7 @@ export async function getStaticProps() {
     fetchAPI("/homepage"),
   ])
 
-  const partnersTwitter: Partner[] = []
+  const partnersTwitter: PartnerT[] = []
 
   for (const partner of partners) {
     try {
