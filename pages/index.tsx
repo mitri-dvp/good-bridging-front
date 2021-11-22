@@ -114,6 +114,17 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
             <tbody>
               <tr>
                 <td className={styles.date}>
+                  <div>November 22nd</div>
+                </td>
+                <td className={styles.name}>
+                  <div>AVAX Cats Minting</div>
+                </td>
+                <td className={styles.value}>
+                  <div>50 AVAX Cats NFTs can be minted for free by holders with more than 1800 $GB.</div>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.date}>
                   <div>Passed</div>
                 </td>
                 <td className={styles.name}>
