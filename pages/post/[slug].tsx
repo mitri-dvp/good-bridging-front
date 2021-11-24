@@ -34,6 +34,7 @@ const Post: NextPage<any> = ({ post, categories }) => {
         <h1>{post.title}</h1>
         <span className={styles.date}>Posted {date}</span>
         <img
+          className={styles.featured}
           src={imageUrl}
           alt={post.image.alternativeText || ""}
         />
