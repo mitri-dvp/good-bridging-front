@@ -8,7 +8,6 @@ const Card: React.FC<any> = ({ post, styles }) => {
   const imageUrl = getStrapiMedia(post.image)
   const date = dayjs(post.published_at).format('dddd DD, MMMM, YYYY')
 
-
   return (
     <Link href={`/post/${post.slug}`}>
       <a className={styles.post}>

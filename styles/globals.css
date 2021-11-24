@@ -55,6 +55,10 @@ a {
   height: 2rem;
   width: 2rem;
 }
+.embla_next_btn svg {
+  transform: rotate(180deg);
+}
+
 
 @media (max-width: 1023px) {
   .embla_next_btn {

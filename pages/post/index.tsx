@@ -24,9 +24,13 @@ const Blog: NextPage<any> = ({ posts }) => {
           <h2>Stay tuned for the latest news and updates from Good Bridging</h2>
         </header>
 
-        <div className={styles.posts}>
-          {posts.map((post: any) => <Card key={post.id} styles={styles} post={post} />)}
-        </div>
+          {posts.length < 1 ?
+            <h1>No posts yet!</h1>
+            :
+            <div className={styles.posts}>
+                {posts.map((post: any) => <Card key={post.id} styles={styles} post={post} />)}
+            </div>
+          }
       </main>
       <Footer/>
     </div>

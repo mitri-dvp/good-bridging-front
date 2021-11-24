@@ -1,3 +1,6 @@
+.container main {
+  min-height: calc(100vh - 20.5rem);
+}
 .container main header {
   padding-top: 10.75rem;
   display: flex;
@@ -18,6 +21,11 @@
   font-weight: normal;
   font-size: 1.25rem;
   margin-top: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+.container main > h1 {
+  text-align: center;
   margin-bottom: 5rem;
 }
 
@@ -64,13 +72,26 @@
 
 .container main .posts .post h1 {
   margin: 1rem 0;
-  font-size: 2rem;
-  font-weight: normal;
+  font-size: 1.75rem;
+  -webkit-line-clamp: 2;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
 }
 .container main .posts .post p {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
+  -webkit-line-clamp: 3;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
 }
 
 @media (max-width: 1023px) {
