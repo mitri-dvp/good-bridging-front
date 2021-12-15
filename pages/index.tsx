@@ -13,7 +13,6 @@ import { fetchAPI } from "../lib/api"
 // Embla
 import useEmblaCarousel from 'embla-carousel-react'
 import lottie from 'lottie-web';
-import scrapeIt from 'scrape-it'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(advancedFormat)
