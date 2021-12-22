@@ -333,7 +333,8 @@
   background-position: center;
 }
 .home .news .content .image_container img {
-  display: none;
+  display: block;
+  visibility: hidden;
 }
 .home .news .content .left {
   padding-right: 2rem;
