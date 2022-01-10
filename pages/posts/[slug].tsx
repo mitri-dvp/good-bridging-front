@@ -49,6 +49,7 @@ const Post: NextPage<any> = ({ post }) => {
 export async function getStaticPaths() {
   const posts = await fetchAPI("/posts?_limit=-1")
 
+
   return {
     paths: posts.map((post: any) => ({
       params: {

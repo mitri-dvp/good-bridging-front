@@ -1,4 +1,4 @@
-import { createContext } from "react"
+import { createContext, useEffect } from "react"
 
 import App from "next/app"
 import Head from "next/head"
@@ -9,12 +9,21 @@ import { getStrapiMedia } from "../lib/media"
 
 import '../styles/globals.css'
 import '../styles/fonts.css'
+import { Router } from "next/router"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext<any>({})
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps
+
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', () => {
+      setTimeout(() => {
+        window.scroll(0, 0);
+      }, 0);
+    });
+  }, [])
 
   return (
     <>

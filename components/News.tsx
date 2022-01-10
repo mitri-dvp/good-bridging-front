@@ -32,7 +32,7 @@ const FeaturedPost: React.FC<any> = ({post, styles}) => {
 
   return (
     <div className={styles.left}>
-      <Link href={`/posts/${post.slug}#`}>
+      <Link scroll={true} href={`/posts/${post.slug}#`}>
         <a className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
           <img src={imageUrl} alt="" />
         </a>
@@ -40,7 +40,7 @@ const FeaturedPost: React.FC<any> = ({post, styles}) => {
       <span>Posted {date}</span>
       <h1>{post.title}</h1>
       <p>{post.description}</p>
-      <Link href={`/posts/${post.slug}#`}>
+      <Link scroll={true} href={`/posts/${post.slug}#`}>
         <a>Read More</a>
       </Link>
     </div>
@@ -52,12 +52,12 @@ const Post: React.FC<any> = ({post, styles}) => {
 
   return (
     <div className={styles.post}>
-      <Link href={`/posts/${post.slug}#`}>
+      <Link scroll={true} href={`/posts/${post.slug}#`}>
         <a className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
           <img src={imageUrl} alt="" />
         </a>
       </Link>
-      <Link href={`/posts/${post.slug}#`}>
+      <Link scroll={true} href={`/posts/${post.slug}#`}>
       <a className={styles.post_content}>
         <span>Posted {date}</span>
         <h1>{post.title}</h1>

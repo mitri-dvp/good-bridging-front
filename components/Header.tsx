@@ -13,21 +13,21 @@ export default function Header() {
     <>
       <header className={`${styles.header} ${styles.desktop}`}>
         <nav>
-          <Link href="/">
+          <Link scroll={true} href="/">
             <a className={styles.logo}>
               <img src="/assets/png/goob_bridging_brandmark_color.png" alt="goob_bridging_brandmark_color" />
               <div>Good <span>Bridging</span></div>
             </a>
           </Link>
-          <Link href="/#about"><a>About</a></Link>
-          <Link href="/posts"><a>Blog</a></Link>
-          <Link href="/#ecosystem"><a>Ecosystem</a></Link>
-          <Link href="/#calendar"><a>Calendar</a></Link>
-          <Link href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/#about"><a>About</a></Link>
+          <Link scroll={true} href="/posts"><a>Blog</a></Link>
+          <Link scroll={true} href="/#ecosystem"><a>Ecosystem</a></Link>
+          <Link scroll={true} href="/#calendar"><a>Calendar</a></Link>
+          <Link scroll={true} href="/nft"><a>NFTs</a></Link>
         </nav>
       </header>
       <header className={`${styles.header} ${styles.mobile}`}>
-        <Link href="/">
+        <Link scroll={true} href="/">
           <a className={styles.logo}>
             <img src="/assets/png/goob_bridging_brandmark_color.png" alt="goob_bridging_brandmark_color" />
           </a>
@@ -38,11 +38,11 @@ export default function Header() {
           </svg>
         </button>
         <nav className={`${showMobileNav ? styles.active : ''}`}>
-          <Link href="/#about"><a>About</a></Link>
-          <Link href="/posts"><a>Blog</a></Link>
-          <Link href="/#ecosystem"><a>Ecosystem</a></Link>
-          <Link href="/#calendar"><a>Calendar</a></Link>
-          <Link href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/#about"><a>About</a></Link>
+          <Link scroll={true} href="/posts"><a>Blog</a></Link>
+          <Link scroll={true} href="/#ecosystem"><a>Ecosystem</a></Link>
+          <Link scroll={true} href="/#calendar"><a>Calendar</a></Link>
+          <Link scroll={true} href="/nft"><a>NFTs</a></Link>
         </nav>
       </header>
     </>
@@ -57,10 +57,10 @@ export default function Header() {
             <div>Good <span>Bridging</span></div>
           </a>
           <a href="#about">About</a>
-          <Link href="/posts"><a>Blog</a></Link>
+          <Link scroll={true} href="/posts"><a>Blog</a></Link>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
-          <Link href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/nft"><a>NFTs</a></Link>
         </nav>
       </header>
       <header className={`${styles.header} ${styles.mobile}`}>
@@ -74,10 +74,10 @@ export default function Header() {
         </button>
         <nav className={`${showMobileNav ? styles.active : ''}`}>
           <a href="#about">About</a>
-          <Link href="/posts"><a>Blog</a></Link>
+          <Link scroll={true} href="/posts"><a>Blog</a></Link>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
-          <Link href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/nft"><a>NFTs</a></Link>
         </nav>
       </header>
     </>
