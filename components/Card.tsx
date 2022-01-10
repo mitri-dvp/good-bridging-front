@@ -1,6 +1,5 @@
 import React from "react"
 import Link from "next/link"
-import NextImage from "./Image"
 import { getStrapiMedia } from "../lib/media"
 import dayjs from "dayjs"
 
@@ -9,7 +8,7 @@ const Card: React.FC<any> = ({ post, styles }) => {
   const date = dayjs(post.published_at).format('dddd DD, MMMM, YYYY')
 
   return (
-    <Link href={`/post/${post.slug}`}>
+    <Link href={`/posts/${post.slug}#`}>
       <a className={styles.post}>
         <div className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
           <img src={imageUrl} alt="" />

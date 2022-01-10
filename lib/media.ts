@@ -3,8 +3,8 @@ import { getStrapiURL } from "./api"
 // Returns the correct URL from strapi media
 export function getStrapiMedia(media: any) {
   if(media === null) {
-    console.log('A media is null')
-    return
+    console.log('WARNING A media is null')
+    return ''
   }
   const imageUrl = media.url.startsWith("/")
     ? getStrapiURL(media.url)

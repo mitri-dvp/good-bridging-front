@@ -35,7 +35,7 @@
   gap: 3.75rem 2rem;
   max-width: 1120px;
   margin: auto;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   padding: 0 2.5rem;
 }
 
@@ -92,6 +92,34 @@
   text-overflow: ellipsis;
   white-space: normal;
   overflow: hidden;
+}
+
+.container .controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.container .controls button {
+  background: none;
+  border: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.container .controls button svg {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.container .controls button:last-child svg {
+  transform: rotate(180deg);
+}
+.container .controls span {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1023px) {

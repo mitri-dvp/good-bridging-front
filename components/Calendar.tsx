@@ -3,10 +3,9 @@ import Airdrop from './Airdrop'
 import { AirdropT } from '../types'
 
 const Calendar: React.FC<{airdrops: AirdropT[], styles: any}> = ({airdrops, styles}) => {
-  const [airdropsState, setAirdropsState] = useState(airdrops)
   const [page, setPage] = useState(0)
   const limit = 3;
-  const totalPages =  Math.ceil(airdrops.length / 3)
+  const totalPages =  Math.ceil(airdrops.length / limit)
 
   const displayAirdrops = () => {
     const array = [];

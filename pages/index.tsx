@@ -140,8 +140,8 @@ const HomeEmblaSlide: React.FC<{partner: PartnerT}> = ({ partner }) => {
 export async function getStaticProps({ params }: any) {
   // Run API calls in parallel
   const [airdrops, partners, posts, homepage] = await Promise.all([
-    fetchAPI("/airdrops?_sort=date:DESC"),
-    fetchAPI("/partners"),
+    fetchAPI("/airdrops?_sort=date:DESC&_limit=-1"),
+    fetchAPI("/partners?_limit=-1"),
     fetchAPI("/posts?_sort=published_at:DESC&_limit=5"),
     fetchAPI("/homepage"),
   ])
@@ -166,7 +166,7 @@ export async function getStaticProps({ params }: any) {
 
   return {
     props: { airdrops, partners: partnersTwitter, posts, homepage },
-    revalidate: 1,
+    revalidate: 1, // How often to revalidate the page (in seconds)
   }
 }
 

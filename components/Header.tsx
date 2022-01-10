@@ -20,7 +20,7 @@ export default function Header() {
             </a>
           </Link>
           <Link href="/#about"><a>About</a></Link>
-          <Link href="/post"><a>Blog</a></Link>
+          <Link href="/posts"><a>Blog</a></Link>
           <Link href="/#ecosystem"><a>Ecosystem</a></Link>
           <Link href="/#calendar"><a>Calendar</a></Link>
           <Link href="/nft"><a>NFTs</a></Link>
@@ -39,7 +39,7 @@ export default function Header() {
         </button>
         <nav className={`${showMobileNav ? styles.active : ''}`}>
           <Link href="/#about"><a>About</a></Link>
-          <Link href="/post"><a>Blog</a></Link>
+          <Link href="/posts"><a>Blog</a></Link>
           <Link href="/#ecosystem"><a>Ecosystem</a></Link>
           <Link href="/#calendar"><a>Calendar</a></Link>
           <Link href="/nft"><a>NFTs</a></Link>
@@ -57,7 +57,7 @@ export default function Header() {
             <div>Good <span>Bridging</span></div>
           </a>
           <a href="#about">About</a>
-          <Link href="/post"><a>Blog</a></Link>
+          <Link href="/posts"><a>Blog</a></Link>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
           <Link href="/nft"><a>NFTs</a></Link>
@@ -74,7 +74,7 @@ export default function Header() {
         </button>
         <nav className={`${showMobileNav ? styles.active : ''}`}>
           <a href="#about">About</a>
-          <Link href="/post"><a>Blog</a></Link>
+          <Link href="/posts"><a>Blog</a></Link>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
           <Link href="/nft"><a>NFTs</a></Link>

@@ -357,7 +357,14 @@
 
 .home .news .content .left h1 {
   margin: 1rem 0;
-  font-size: 3.875rem;
+  font-size: 3rem;
+  -webkit-line-clamp: 3;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
 }
 
 .home .news .content .left p {

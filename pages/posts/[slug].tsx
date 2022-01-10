@@ -14,7 +14,7 @@ import { getStrapiMedia } from "../../lib/media"
 import styles from '../../styles/Post.module.css'
 import React from "react"
 
-const Post: NextPage<any> = ({ post, categories }) => {
+const Post: NextPage<any> = ({ post }) => {
   const imageUrl = getStrapiMedia(post.image)
   const date = dayjs(post.published_at).format('dddd DD, MMMM, YYYY')
 
@@ -30,6 +30,7 @@ const Post: NextPage<any> = ({ post, categories }) => {
       <Seo seo={seo} />
 
       <Header/>
+
       <article>
         <h1>{post.title}</h1>
         <span className={styles.date}>Posted {date}</span>
@@ -46,9 +47,7 @@ const Post: NextPage<any> = ({ post, categories }) => {
 }
 
 export async function getStaticPaths() {
-  const posts = await fetchAPI("/posts")
-
-  console.log('getStaticPaths Posts response', posts)
+  const posts = await fetchAPI("/posts?_limit=-1")
 
   return {
     paths: posts.map((post: any) => ({
