@@ -1,3 +1,6 @@
+.container main {
+  min-height: calc(100vh - 20.5rem);
+}
 .container main header {
   padding-top: 10.75rem;
   display: flex;
@@ -21,24 +24,45 @@
   margin-bottom: 5rem;
 }
 
+.container main > h1 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
 .container main .posts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3.75rem 2rem;
+  max-width: 1120px;
+  margin: auto;
+  margin-bottom: 5rem;
   padding: 0 2.5rem;
-  margin-bottom: 10rem;
 }
 
 .container main .posts .post {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.container main .posts .post .content {
   background-color: #F2F2F2;
+  border-radius: 0.5rem;
+  height: max-content;
+  overflow: hidden;
+}
+
+.container main .posts .post .content {
   padding: 1rem 1.75rem;
   padding-bottom: 1.75rem;
 }
-.container main .posts .post img {
+
+.container main .posts .post .image_container {
   width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #bbb;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.container main .posts .post img {
+  display: none;
 }
 
 .container main .posts .post span {
@@ -47,14 +71,55 @@
 }
 
 .container main .posts .post h1 {
-  margin: 0.5rem 0;
-  font-size: 2.875rem;
-  font-weight: normal;
+  margin: 1rem 0;
+  font-size: 1.75rem;
+  -webkit-line-clamp: 2;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
 }
 .container main .posts .post p {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
+  -webkit-line-clamp: 3;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.container .controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.container .controls button {
+  background: none;
+  border: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.container .controls button svg {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.container .controls button:last-child svg {
+  transform: rotate(180deg);
+}
+.container .controls span {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1023px) {

@@ -21,15 +21,15 @@ export default function Footer() {
                 <a href="#">Blog</a>
                 <a href="#">Ecosystem</a>
                 <a href="#calendar">Calendar</a>
-                <Link href="/nft"><a>NFTs</a></Link>
+                <Link scroll={true} href="/nft"><a>NFTs</a></Link>
               </>
               ):(
               <>
-                <Link href="/#about"><a>About</a></Link>
-                <Link href="/#blog"><a>Blog</a></Link>
-                <Link href="/#ecosystem"><a>Ecosystem</a></Link>
-                <Link href="/#calendar"><a>Calendar</a></Link>
-                <Link href="/nft"><a>NFTs</a></Link>
+                <Link scroll={true} href="/#about"><a>About</a></Link>
+                <Link scroll={true} href="/#blog"><a>Blog</a></Link>
+                <Link scroll={true} href="/#ecosystem"><a>Ecosystem</a></Link>
+                <Link scroll={true} href="/#calendar"><a>Calendar</a></Link>
+                <Link scroll={true} href="/nft"><a>NFTs</a></Link>
               </>
             )}
           </nav>
@@ -43,7 +43,7 @@ export default function Footer() {
         <div className={styles.copy}>
           2021 Good Bridging . All Rights Reserved
         </div>
-        <img className={styles.mascot} src="/assets/svg/home-footer-mascot.svg" alt="" />
+        <a href="https://t.me/GoodBridgingToken" target="_good_bridging"><img className={styles.mascot} src="/assets/svg/home-footer-mascot.svg" alt="" /></a>
       </div>
     </footer>
   )

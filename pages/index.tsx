@@ -1,22 +1,31 @@
 import { useRef, useEffect, useCallback, useState } from 'react'
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Seo from "../components/Seo"
+import Calendar from '../components/Calendar'
 
-import lottie from 'lottie-web';
 import styles from '../styles/Home.module.css'
-import partnersData from '../public/assets/json/partners.json'
 
+import { fetchAPI } from "../lib/api"
 // Embla
 import useEmblaCarousel from 'embla-carousel-react'
-interface Partner {
-  screen_name: string
-  profile_pic: string
-}
+import lottie from 'lottie-web';
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 
-const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
+import { PartnerT, AirdropT } from '../types'
+import News from '../components/News'
+
+const Home: NextPage<{
+  airdrops: AirdropT[],
+  partners: PartnerT[],
+  posts:any,
+  homepage: any
+}> = ({ airdrops, partners, posts, homepage }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, speed: 5, containScroll: 'trimSnaps' })
 
   const prevSlide = useCallback(() => {
@@ -47,8 +56,11 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
 
   return (
     <div className={styles.home}>
+
+      <Seo seo={homepage.seo} />
+
       <Head>
-        <title>Welcome to Good Bridging</title>
+        <title>{homepage.seo.metaTitle}</title>
       </Head>
 
       <Header />
@@ -82,19 +94,20 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
             <div className={styles.partners}>
               <div>
                 <button onClick={()=> prevSlide()} className="embla_prev_btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.30184 4.42155L5.09965 7.21937L5.09966 7.21938C5.30011 7.41986 5.30011 7.74487 5.09966 7.94535L5.09961 7.94541C4.89913 8.14579 4.57416 8.14581 4.37368 7.94539L4.37365 7.94537L1.21284 4.78455L1.21281 4.78452C1.0124 4.58405 1.0124 4.25905 1.21281 4.05858L1.21284 4.05855L4.37365 0.897737L4.37362 0.897711L4.37675 0.894687C4.58071 0.697712 4.90572 0.703366 5.1027 0.907324L5.10271 0.907333C5.29483 1.10628 5.29485 1.42169 5.1027 1.62064L5.10272 1.62066L5.09965 1.62374L2.30184 4.42155Z" fill="#fa538b" stroke="#fa538b" strokeWidth="0.5"></path>
                   </svg>
                 </button>
                 <button onClick={()=> nextSlide()} className="embla_next_btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.30184 4.42155L5.09965 7.21937L5.09966 7.21938C5.30011 7.41986 5.30011 7.74487 5.09966 7.94535L5.09961 7.94541C4.89913 8.14579 4.57416 8.14581 4.37368 7.94539L4.37365 7.94537L1.21284 4.78455L1.21281 4.78452C1.0124 4.58405 1.0124 4.25905 1.21281 4.05858L1.21284 4.05855L4.37365 0.897737L4.37362 0.897711L4.37675 0.894687C4.58071 0.697712 4.90572 0.703366 5.1027 0.907324L5.10271 0.907333C5.29483 1.10628 5.29485 1.42169 5.1027 1.62064L5.10272 1.62066L5.09965 1.62374L2.30184 4.42155Z" fill="#fa538b" stroke="#fa538b" strokeWidth="0.5">
+                    </path>
                   </svg>
                 </button>
                 <div className="embla" ref={emblaRef}>
                   <div className="embla__container">
                     {partners.map(partner => (
-                      <EmblaSlide  key={partner.screen_name} partner={partner}/>
+                      <HomeEmblaSlide  key={partner.id} partner={partner}/>
                     ))}
                   </div>
                 </div>
@@ -102,146 +115,15 @@ const Home: NextPage<{partners: Partner[]}> = ({ partners }) => {
             </div>
           </div>
         </div>
-        <section className={styles.calendar} id="calendar">
-          <table className="content">
-            <thead>
-              <tr>
-                <th colSpan={3}>
-                  <div><img src="/assets/svg/home-airdrop-banner-icon.svg" alt="" /> Calendar</div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className={styles.date}>
-                  <div>Passed</div>
-                </td>
-                <td className={styles.name}>
-                  <div>AVAX Cats Minting</div>
-                </td>
-                <td className={styles.value}>
-                  <div>50 AVAX Cats NFTs can be minted for free by holders with more than 1800 $GB.</div>
-                </td>
-              </tr>
-              <tr>
-                <td className={styles.date}>
-                  <div>Passed</div>
-                </td>
-                <td className={styles.name}>
-                  <div>Chikn Minting</div>
-                </td>
-                <td className={styles.value}>
-                  <div>Holders with 900 GB or more can mint a free NFT Chikn. NFT&apos;s are resource producing with a tri-token architecture.</div>
-                </td>
-              </tr>
-              <tr>
-                <td className={styles.date}>
-                  <div>Passed</div>
-                </td>
-                <td className={styles.name}>
-                  <div>GoodFire Airdrop</div>
-                </td>
-                <td className={styles.value}>
-                  <div>Holders with over 900 GB will have a total of 28 Million GF airdrop evently.</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        {/* <section className={styles.news} id="blog">
-          <div className={styles.header}>
-            <h1>Good Bridging News</h1>
-            <img src="/assets/svg/home-news-mascot.svg" alt="" />
-          </div>
-          <div className={styles.content}>
-            <div className={styles.left}>
-              <img src="/assets/png/home-news-thumbnail.png" alt="" />
-              <span>Posted Monday 00, Month, Year</span>
-              <h1>Post Title</h1>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
-              <button>Read More</button>
-            </div>
-            <div className={styles.rigth}>
-              <div className={styles.post}>
-                <img src="/assets/png/home-news-posts-thumbnail.png" alt="" />
-                <div className={styles.post_content}>
-                  <span>Posted Monday 00, Month, Year</span>
-                  <h1>Post Title</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-                </div>
-              </div>
-              <div className={styles.post}>
-                <img src="/assets/png/home-news-posts-thumbnail.png" alt="" />
-                <div className={styles.post_content}>
-                  <span>Posted Monday 00, Month, Year</span>
-                  <h1>Post Title</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-                </div>
-              </div>
-              <div className={styles.post}>
-                <img src="/assets/png/home-news-posts-thumbnail.png" alt="" />
-                <div className={styles.post_content}>
-                  <span>Posted Monday 00, Month, Year</span>
-                  <h1>Post Title</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-                </div>
-              </div>
-              <div className={styles.post}>
-                <img src="/assets/png/home-news-posts-thumbnail.png" alt="" />
-                <div className={styles.post_content}>
-                  <span>Posted Monday 00, Month, Year</span>
-                  <h1>Post Title</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
+        <Calendar airdrops={airdrops} styles={styles} />
+        <News posts={posts} styles={styles}/>
       </main>
       <Footer />
     </div>
   )
 }
 
-export default Home
-
-export async function getServerSideProps(context: GetServerSideProps) {
-  
-  const partners: Partner[] = []
-  
-  for (const partner of partnersData.partners) {
-    try {
-      const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
-        headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
-      })
-      const data = await res.json()
-      partners.push({
-        screen_name: partner.screen_name,
-        profile_pic: data.profile_image_url.replace('_normal', '')
-      })
-      console.log('SUCCESS :: Pushed partner:', {
-        screen_name: partner.screen_name,
-        profile_pic: data.profile_image_url.replace('_normal', '')
-      })
-    } catch (error) {
-      partners.push({
-        screen_name: partner.screen_name,
-        profile_pic: partner.default_src
-      })
-      console.log('ERROR :: Pushed partner:', {
-        screen_name: partner.screen_name,
-        profile_pic: partner.default_src
-      })
-    }
-  }
-
-  return {
-    props: {partners},
-  }
-}
-
-
-const EmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
+const HomeEmblaSlide: React.FC<{partner: PartnerT}> = ({ partner }) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
@@ -253,3 +135,39 @@ const EmblaSlide: React.FC<{partner: Partner}> = ({ partner }) => {
     </div>
   )
 }
+
+
+export async function getStaticProps({ params }: any) {
+  // Run API calls in parallel
+  const [airdrops, partners, posts, homepage] = await Promise.all([
+    fetchAPI("/airdrops?_sort=date:DESC&_limit=-1"),
+    fetchAPI("/partners?_limit=-1"),
+    fetchAPI("/posts?_sort=published_at:DESC&_limit=5"),
+    fetchAPI("/homepage"),
+  ])
+
+  const partnersTwitter: PartnerT[] = []
+
+  for (const partner of partners) {
+    try {
+      const res = await fetch(`https://api.twitter.com/1.1/users/show.json?screen_name=${partner.screen_name}`, {
+        headers: [['authorization', `Bearer ${process.env.NEXT_PUBLIC_TWITTER_BEARER_TOKEN}`]]
+      })
+      const data = await res.json()
+      partnersTwitter.push({
+        screen_name: partner.screen_name,
+        profile_pic: data.profile_image_url.replace('_normal', ''),
+        id: partner.id
+      })
+    } catch (error) {
+      console.log(`ERROR fetching ${partner.screen_name} profile`)
+    }
+  }
+
+  return {
+    props: { airdrops, partners: partnersTwitter, posts, homepage },
+    revalidate: 1, // How often to revalidate the page (in seconds)
+  }
+}
+
+export default Home
