@@ -12,7 +12,7 @@ export default function Footer() {
         <div className={styles.header}>
           <div className={styles.logo}>
             <img src="/assets/svg/goob_bridging_black.svg" alt="" />
-            <span>A fair launch commutity coin built on Avalanche.</span>
+            <span>A fair launch community coin built on Avalanche.</span>
           </div>
           <nav>
             {isHome ? (

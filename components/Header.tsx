@@ -24,6 +24,7 @@ export default function Header() {
           <Link scroll={true} href="/#ecosystem"><a>Ecosystem</a></Link>
           <Link scroll={true} href="/#calendar"><a>Calendar</a></Link>
           <Link scroll={true} href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/staking "><a>Staking</a></Link>
         </nav>
       </header>
       <header className={`${styles.header} ${styles.mobile}`}>
@@ -43,6 +44,7 @@ export default function Header() {
           <Link scroll={true} href="/#ecosystem"><a>Ecosystem</a></Link>
           <Link scroll={true} href="/#calendar"><a>Calendar</a></Link>
           <Link scroll={true} href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/staking "><a>Staking</a></Link>
         </nav>
       </header>
     </>
@@ -61,6 +63,7 @@ export default function Header() {
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
           <Link scroll={true} href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/staking "><a>Staking</a></Link>
         </nav>
       </header>
       <header className={`${styles.header} ${styles.mobile}`}>
@@ -78,6 +81,7 @@ export default function Header() {
           <a href="#ecosystem">Ecosystem</a>
           <a href="#calendar">Calendar</a>
           <Link scroll={true} href="/nft"><a>NFTs</a></Link>
+          <Link scroll={true} href="/staking "><a>Staking</a></Link>
         </nav>
       </header>
     </>
