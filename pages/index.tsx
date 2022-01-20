@@ -68,7 +68,7 @@ const Home: NextPage<{
       <main>
         <section className={styles.hero}>
           <div className={styles.content}>
-            <img className={styles.shapes} src="/assets/svg/home-hero-shapes.svg" alt="" />
+            <img className={styles.shapes} src="/assets/svg/home-hero-shapes.webp" alt="" />
             <div className={styles.lottie} ref={containerRef}></div>
             <div>
               <h1>Good Morning and Good Bridging!</h1>
@@ -84,7 +84,7 @@ const Home: NextPage<{
               <p>What’s $GB?</p>
               <p>Good Bridging Token ($GB) is a fair launched DeFi token in the Avalanche Network, 100% of the supply was airdropped evenly to 16,135 addresses give a warm welcome to those decentralization enthusiasts that have used the Avalanche-Ethereum Bridge to transact their ERC-20 assets in the Avalanche Network.</p>
               <p>No insiders, no pre-sale, no VC’s, no team allocation.</p>
-              <img className={styles.banner} src="/assets/svg/home-about-banner.svg" alt="" />
+              <img className={styles.banner} src="/assets/svg/home-about-banner.webp" alt="" />
             </div>
           </div>
         </section>
