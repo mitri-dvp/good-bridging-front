@@ -335,6 +335,7 @@
 .home .news .content .image_container img {
   display: block;
   visibility: hidden;
+  width: 100%;
 }
 .home .news .content .left {
   padding-right: 2rem;

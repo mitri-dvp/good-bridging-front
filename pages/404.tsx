@@ -14,9 +14,9 @@ const Custom404: NextPage = () => {
 
       <Header/>
       <main>
-        <img className={styles.left} src="/assets/svg/404/left.svg" alt="" />
-        <img className={styles.wolfy} src="/assets/svg/404/wolfy.svg" alt="" />
-        <img className={styles.rigth} src="/assets/svg/404/rigth.svg" alt="" />
+        <img className={styles.left} src="/assets/svg/404/left.svg" alt="shapes_left" />
+        <img className={styles.wolfy} src="/assets/svg/404/wolfy.svg" alt="wolfy_not_found" />
+        <img className={styles.rigth} src="/assets/svg/404/rigth.svg" alt="shapes_rigth" />
         <h1>404</h1>
         <h2>Page not found</h2>
       </main>

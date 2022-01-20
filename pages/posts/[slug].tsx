@@ -37,7 +37,7 @@ const Post: NextPage<any> = ({ post }) => {
         <img
           className={styles.featured}
           src={imageUrl}
-          alt={post.image.alternativeText || ""}
+          alt={`${post.slug}-thumbnail`}
         />
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </article>

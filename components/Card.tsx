@@ -11,7 +11,7 @@ const Card: React.FC<any> = ({ post, styles }) => {
     <Link scroll={true} href={`/posts/${post.slug}#`}>
       <a className={styles.post}>
         <div className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
-          <img src={imageUrl} alt="" />
+          <img src={imageUrl} alt={`${post.slug}-thumbnail`} />
         </div>
         <div className={styles.content}>
           <span>Posted {date}</span>
