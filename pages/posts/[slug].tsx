@@ -66,7 +66,7 @@ export async function getStaticProps({ params }: any) {
 
   return {
     props: { post: posts[0], categories },
-    revalidate: 1,
+    // revalidate: 1,
   }
 }
 

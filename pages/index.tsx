@@ -166,7 +166,7 @@ export async function getStaticProps({ params }: any) {
 
   return {
     props: { airdrops, partners: partnersTwitter, posts, homepage },
-    revalidate: 1, // How often to revalidate the page (in seconds)
+    // revalidate: 1, // How often to revalidate the page (in seconds)
   }
 }
 
