@@ -93,12 +93,12 @@ const Home: NextPage<{
             <h1>Projects that trust in GB</h1>
             <div className={styles.partners}>
               <div>
-                <button onClick={()=> prevSlide()} className="embla_prev_btn">
+                <button onClick={()=> prevSlide()} className="embla_prev_btn" aria-label="partners_previous_slide">
                   <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.30184 4.42155L5.09965 7.21937L5.09966 7.21938C5.30011 7.41986 5.30011 7.74487 5.09966 7.94535L5.09961 7.94541C4.89913 8.14579 4.57416 8.14581 4.37368 7.94539L4.37365 7.94537L1.21284 4.78455L1.21281 4.78452C1.0124 4.58405 1.0124 4.25905 1.21281 4.05858L1.21284 4.05855L4.37365 0.897737L4.37362 0.897711L4.37675 0.894687C4.58071 0.697712 4.90572 0.703366 5.1027 0.907324L5.10271 0.907333C5.29483 1.10628 5.29485 1.42169 5.1027 1.62064L5.10272 1.62066L5.09965 1.62374L2.30184 4.42155Z" fill="#fa538b" stroke="#fa538b" strokeWidth="0.5"></path>
                   </svg>
                 </button>
-                <button onClick={()=> nextSlide()} className="embla_next_btn">
+                <button onClick={()=> nextSlide()} className="embla_next_btn" aria-label="partners_next_slide">
                   <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.30184 4.42155L5.09965 7.21937L5.09966 7.21938C5.30011 7.41986 5.30011 7.74487 5.09966 7.94535L5.09961 7.94541C4.89913 8.14579 4.57416 8.14581 4.37368 7.94539L4.37365 7.94537L1.21284 4.78455L1.21281 4.78452C1.0124 4.58405 1.0124 4.25905 1.21281 4.05858L1.21284 4.05855L4.37365 0.897737L4.37362 0.897711L4.37675 0.894687C4.58071 0.697712 4.90572 0.703366 5.1027 0.907324L5.10271 0.907333C5.29483 1.10628 5.29485 1.42169 5.1027 1.62064L5.10272 1.62066L5.09965 1.62374L2.30184 4.42155Z" fill="#fa538b" stroke="#fa538b" strokeWidth="0.5">
                     </path>
@@ -129,7 +129,7 @@ const HomeEmblaSlide: React.FC<{partner: PartnerT}> = ({ partner }) => {
   return (
     <div className="embla__slide">
       <a href={`https://twitter.com/${partner.screen_name}`} target="_good_bridging" className={styles.partner}>
-        <img className={loaded ? styles.loaded : ''} src={partner.profile_pic} alt={partner.screen_name} onLoad={() => setLoaded(true)} />
+        <img loading="lazy" className={loaded ? styles.loaded : ''} src={partner.profile_pic} alt={partner.screen_name} onLoad={() => setLoaded(true)} />
         <span>@{partner.screen_name}</span>
       </a>
     </div>
@@ -156,7 +156,7 @@ export async function getStaticProps({ params }: any) {
       const data = await res.json()
       partnersTwitter.push({
         screen_name: partner.screen_name,
-        profile_pic: data.profile_image_url.replace('_normal', ''),
+        profile_pic: data.profile_image_url.replace('_normal', '').replace(/^http:\/\//i, 'https://'),
         id: partner.id
       })
     } catch (error) {

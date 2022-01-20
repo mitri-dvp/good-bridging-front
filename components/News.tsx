@@ -8,7 +8,7 @@ const News: React.FC<any> = ({posts, styles}) => {
     <section className={styles.news} id="blog">
       <div className={styles.header}>
         <h1>Good Bridging News</h1>
-        <img src="/assets/svg/home-news-mascot.svg" alt="wolfy_blog_icon" />
+        <img loading="lazy" src="/assets/svg/home-news-mascot.svg" alt="wolfy_blog_icon" />
       </div>
       {posts.length < 1 ? (
         <h1>No posts yet!</h1>
@@ -34,7 +34,7 @@ const FeaturedPost: React.FC<any> = ({post, styles}) => {
     <div className={styles.left}>
       <Link scroll={true} href={`/posts/${post.slug}#`}>
         <a className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
-          <img src={imageUrl} alt={`${post.slug}-thumbnail`} />
+          <img loading="lazy" src={imageUrl} alt={`${post.slug}-thumbnail`} />
         </a>
       </Link>
       <span>Posted {date}</span>
@@ -55,7 +55,7 @@ const Post: React.FC<any> = ({post, styles}) => {
     <div className={styles.post}>
       <Link scroll={true} href={`/posts/${post.slug}#`}>
         <a className={styles.image_container} style={{backgroundImage: `url(${imageUrl})`}}>
-          <img src={imageUrl} alt={`${post.slug}-thumbnail`} />
+          <img loading="lazy" src={imageUrl} alt={`${post.slug}-thumbnail`} />
         </a>
       </Link>
       <Link scroll={true} href={`/posts/${post.slug}#`}>
